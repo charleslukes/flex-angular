@@ -1,6 +1,5 @@
-<app-header (viewToDisplay)='getDisplay($event)'></app-header>
+<app-header (viewToDisplay)="getDisplay($event)"></app-header>
 
 <div class="container">
-  <app-recipe-book *ngIf="viewToDisplay"></app-recipe-book>
-  <app-shopping-list *ngIf="!viewToDisplay"></app-shopping-list>
+  <router-outlet></router-outlet>
 </div>
