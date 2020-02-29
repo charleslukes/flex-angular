@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { RecipeModel } from "../../recipe.model";
-import { RecipeService } from "../../recipe.service";
-
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-recipe-single",
   templateUrl: "./recipe-single.component.html",
@@ -9,12 +8,9 @@ import { RecipeService } from "../../recipe.service";
 })
 export class RecipeSingleComponent implements OnInit {
   @Input() recipe: RecipeModel;
+  @Input() index: number;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {}
-
-  onSingleRecipe() {
-    this.recipeService.selectedRecipe.emit(this.recipe);
-  }
 }
